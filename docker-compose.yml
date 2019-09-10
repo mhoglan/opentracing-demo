@@ -1,0 +1,56 @@
+version: "2"
+
+services: 
+  trace_1:
+    image: golang:1.12.9-alpine
+    volumes: 
+      - /Volumes/code/gosrc/src/:/go/src/
+    working_dir: /go/src/github.com/TykTechnologies/trace-demo
+    depends_on: 
+      - jaeger
+    environment: 
+      - APP_ID=srv1
+      - DEST_URL=http://gw2:8181
+      - APP_TRACER=jaeger
+    command: go run main.go
+  trace_2:
+    image: golang:1.12.9-alpine
+    volumes: 
+      - /Volumes/code/gosrc/src/:/go/src/
+    working_dir: /go/src/github.com/TykTechnologies/trace-demo
+    depends_on: 
+      - jaeger
+    environment: 
+      - APP_ID=srv2
+      - DEST_URL=http://gw1:8181
+      - APP_TRACER=jaeger
+    command: go run main.go
+  gw1:
+    image: golang:1.12.9-alpine
+    volumes: 
+      - /Volumes/code/gosrc/src/:/go/src/
+      - ./gw1.json:/tyk.conf
+    working_dir: /go/src/github.com/TykTechnologies/tyk
+    depends_on: 
+      - jaeger
+      - tyk-redis
+    ports: 
+      - "8181:8181"
+    command: go run main.go --conf /tyk.conf
+  gw2:
+    image: golang:1.12.9-alpine
+    volumes: 
+      - /Volumes/code/gosrc/src/:/go/src/
+      - ./gw2.json:/tyk.conf
+    working_dir: /go/src/github.com/TykTechnologies/tyk
+    depends_on: 
+      - jaeger
+      - tyk-redis
+    command: go run main.go --conf /tyk.conf
+  tyk-redis:
+    image: redis:latest
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports: 
+      - "6831:6831/udp"
+      - "16686:16686"

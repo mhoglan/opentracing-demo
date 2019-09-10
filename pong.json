@@ -1,0 +1,27 @@
+{
+    "name": "pong",
+    "slug": "api",
+    "api_id": "pong_api",
+    "use_keyless": true,
+    "auth": {
+        "auth_header_name": "Authorization"
+    },
+    "definition": {
+        "location": "header",
+        "key": "x-api-version"
+    },
+    "version_data": {
+        "not_versioned": true,
+        "versions": {
+            "Default": {
+                "name": "Default",
+                "use_extended_paths": true
+            }
+        }
+    },
+    "proxy": {
+        "listen_path": "/pong",
+        "target_url": "http://trace_2:6666"
+    },
+    "active": true
+}

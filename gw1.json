@@ -1,0 +1,147 @@
+{
+    "listen_address": "",
+    "listen_port": 8181,
+    "secret": "352d20ee67be67f6340b4c0605b044b7",
+    "node_secret": "352d20ee67be67f6340b4c0605b044b7",
+    "template_path": "./templates",
+    "middleware_path": "./middleware",
+    "use_db_app_configs": false,
+    "app_path": "./apps/",
+    "policies": {
+        "policy_source": "file",
+        "policy_record_name": "./policies/policies.json"
+    },
+    "storage": {
+        "type": "redis",
+        "host": "",
+        "port": 0,
+        "hosts": {
+            "tyk-redis": "6379"
+        },
+        "username": "",
+        "password": "",
+        "database": 0,
+        "optimisation_max_idle": 3000,
+        "optimisation_max_active": 5000,
+        "enable_cluster": false
+    },
+    "enable_separate_cache_store": false,
+    "cache_storage": {
+        "type": "redis",
+        "host": "",
+        "port": 0,
+        "hosts": {
+            "localhost": "6379"
+        },
+        "username": "",
+        "password": "",
+        "database": 0,
+        "optimisation_max_idle": 3000,
+        "optimisation_max_active": 5000,
+        "enable_cluster": false
+    },
+    "enable_analytics": false,
+    "optimisations_use_async_session_write": true,
+    "allow_master_keys": false,
+    "hash_keys": true,
+    "suppress_redis_signal_reload": false,
+    "suppress_default_org_store": false,
+    "use_redis_log": true,
+    "sentry_code": "",
+    "use_sentry": false,
+    "use_syslog": false,
+    "use_graylog": false,
+    "use_logstash": false,
+    "graylog_network_addr": "",
+    "logstash_network_addr": "",
+    "syslog_transport": "",
+    "logstash_transport": "",
+    "syslog_network_addr": "",
+    "enforce_org_data_age": true,
+    "enforce_org_data_detail_logging": false,
+    "enforce_org_quotas": true,
+    "experimental_process_org_off_thread": true,
+    "enable_non_transactional_rate_limiter": true,
+    "enable_sentinel_rate_limiter": false,
+    "oauth_refresh_token_expire": 0,
+    "oauth_token_expire": 0,
+    "oauth_redirect_uri_separator": ";",
+    "slave_options": {
+        "use_rpc": false,
+        "connection_string": "",
+        "rpc_key": "",
+        "api_key": "",
+        "enable_rpc_cache": false,
+        "bind_to_slugs": false,
+        "disable_keyspace_sync": false,
+        "group_id": ""
+    },
+    "disable_virtual_path_blobs": false,
+    "local_session_cache": {
+        "disable_cached_session_state": true,
+        "cached_session_timeout": 0,
+        "cached_session_eviction": 0
+    },
+    "http_server_options": {
+        "override_defaults": false,
+        "read_timeout": 0,
+        "write_timeout": 0,
+        "use_ssl": false,
+        "use_ssl_le": false,
+        "enable_websockets": true,
+        "certificates": [],
+        "server_name": "",
+        "min_version": 0,
+        "flush_interval": 0
+    },
+    "close_connections": true,
+    "health_check": {
+        "enable_health_checks": false,
+        "health_check_value_timeouts": 30
+    },
+    "hostname": "",
+    "enable_api_segregation": false,
+    "control_api_hostname": "",
+    "enable_jsvm": true,
+    "coproces_optoons": {
+        "enable_coprocess": true
+    },
+    "enable_bundle_downloader": false,
+    "bundle_base_url": "",
+    "hide_generator_header": false,
+    "event_handlers": {
+        "events": {}
+    },
+    "event_trigers_defunct": {},
+    "pid_file_location": "./tyk-gateway1.pid",
+    "allow_insecure_configs": true,
+    "tracing": {
+        "name": "jaeger",
+        "enabled": true,
+        "options": {
+            "serviceName": "gw1",
+            "disabled": false,
+            "rpc_metrics": false,
+            "tags": null,
+            "sampler": {
+                "type": "const",
+                "param": 1,
+                "samplingServerURL": "",
+                "maxOperations": 0,
+                "samplingRefreshInterval": 0
+            },
+            "reporter": {
+                "queueSize": 0,
+                "BufferFlushInterval": 0,
+                "logSpans": true,
+                "localAgentHostPort": "jaeger:6831",
+                "collectorEndpoint": "",
+                "user": "",
+                "password": ""
+            },
+            "headers": null,
+            "baggage_restrictions": null,
+            "throttler": null
+        }
+    }
+}
