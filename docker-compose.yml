@@ -5,7 +5,7 @@ services:
     image: golang:1.12.9-alpine
     volumes: 
       - /Volumes/code/gosrc/src/:/go/src/
-    working_dir: /go/src/github.com/TykTechnologies/trace-demo
+    working_dir: /go/src/github.com/TykTechnologies/opentracing-demo
     depends_on: 
       - jaeger
     environment: 
@@ -17,7 +17,7 @@ services:
     image: golang:1.12.9-alpine
     volumes: 
       - /Volumes/code/gosrc/src/:/go/src/
-    working_dir: /go/src/github.com/TykTechnologies/trace-demo
+    working_dir: /go/src/github.com/TykTechnologies/opentracing-demo
     depends_on: 
       - jaeger
     environment: 
