@@ -103,7 +103,7 @@
     "enable_api_segregation": false,
     "control_api_hostname": "",
     "enable_jsvm": true,
-    "coproces_optoons": {
+    "coprocess_options": {
         "enable_coprocess": true
     },
     "enable_bundle_downloader": false,
